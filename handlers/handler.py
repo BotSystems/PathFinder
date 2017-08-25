@@ -4,14 +4,14 @@ import os
 from telegram.ext import MessageHandler, CommandHandler
 
 from handlers.core import send_places, get_nearby_places, take_by_limit, order_places, build_places, build_keyboard
+
+from handlers.messages import get_message_by_key
 from handlers.decorators import save_chanel_decorator
 
 GOOGLE_PLACE_LIMIT = os.getenv('GOOGLE_PLACE_LIMIT')
 GOOGLE_PLACES_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
 GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
 GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
-
-from handlers.messages import get_message_by_key
 
 
 @save_chanel_decorator

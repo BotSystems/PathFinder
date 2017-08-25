@@ -41,10 +41,6 @@ def get_nearby_places(lat, lng, token, place_type, radius):
 
     response = urllib.request.urlopen(url)
     result = json.loads(response.read())
-    print(result)
-    print(token)
-    print(place_type)
-    print(radius)
 
     if 'results' in result:
         return result['results']
@@ -85,9 +81,6 @@ def send_places(update, places):
 
 
 def take_by_limit(places, limit):
-
-    print(limit)
-    print(places[:limit])
     return places[:limit]
 
 

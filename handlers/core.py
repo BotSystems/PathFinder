@@ -3,7 +3,7 @@ import os
 import urllib.request
 from math import sin, cos, sqrt, atan2, radians
 
-from telegram import ParseMode
+from telegram import ParseMode, KeyboardButton, ReplyKeyboardMarkup
 
 from handlers.messages import get_message_by_key
 from handlers.models import Place
@@ -70,9 +70,14 @@ def order_places(placeList):
     return placeList
 
 
+def build_keyboard():
+    search_key = [KeyboardButton('Найти заведение', None, True)]
+    return ReplyKeyboardMarkup([search_key], True)
+
+
 def send_places(update, places):
     for place in places:
-        update.message.reply_text(place.build_answer(), parse_mode=ParseMode.HTML)
+        update.message.reply_text(place.build_answer(), parse_mode=ParseMode.HTML, reply_markup=build_keyboard())
 
 
 def take_by_limit(places, limit):

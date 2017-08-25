@@ -81,6 +81,7 @@ def send_places(update, places):
 
 
 def take_by_limit(places, limit):
+    print(limit)
     return places[:limit]
 
 
@@ -91,8 +92,6 @@ if __name__ == '__main__':
     GOOGLE_PLACES_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
     GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
     GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
-
-    print('LIMIT: ', GOOGLE_PLACE_LIMIT)
 
     nearby_places = get_nearby_places(latitude, longitude, GOOGLE_PLACES_TOKEN, GOOGLE_PLACES_TYPE,
                                       GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE)

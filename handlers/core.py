@@ -71,9 +71,7 @@ def order_places(placeList):
 
 
 def send_places(update, places):
-    print(places)
     for place in places:
-        pass
         update.message.reply_text(place.build_answer(), parse_mode=ParseMode.HTML)
 
 

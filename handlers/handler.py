@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-from telegram.ext import MessageHandler
+from telegram.ext import MessageHandler, CommandHandler
 
 from handlers.core import send_places, get_nearby_places, take_by_limit, order_places, build_places
 from handlers.decorators import save_chanel_decorator
@@ -12,6 +12,12 @@ GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACES_TYPE')
 GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
 
 from handlers.messages import get_message_by_key
+
+
+@save_chanel_decorator
+def handle_start(bot, update):
+    message = get_message_by_key('intro')
+    update.message.reply_text(message)
 
 
 @save_chanel_decorator
@@ -33,5 +39,6 @@ def handle_coordinate(bot, update):
 
 
 def init_handlers(dispatcher):
+    dispatcher.add_handler(CommandHandler('start', handle_start))
     dispatcher.add_handler(MessageHandler(None, handle_coordinate))
     return dispatcher

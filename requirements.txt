@@ -1,0 +1,10 @@
+gunicorn==19.7.1
+gevent==1.2.2
+botanio==1.0.0
+Flask==0.12.2
+peewee==2.10.1
+python-dotenv==0.6.4
+python-telegram-bot==6.1.0
+requests==2.18.1
+psycopg2==2.7.2
+beautifulsoup4==4.6.0

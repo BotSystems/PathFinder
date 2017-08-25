@@ -71,7 +71,7 @@ def order_places(placeList):
 
 
 def build_keyboard():
-    search_key = [KeyboardButton('Найти заведение', None, True)]
+    search_key = [KeyboardButton(get_message_by_key('search'), None, True)]
     return ReplyKeyboardMarkup([search_key], True)
 
 

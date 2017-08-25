@@ -7,8 +7,8 @@ from handlers.core import send_places, get_nearby_places, take_by_limit, order_p
 from handlers.decorators import save_chanel_decorator
 
 GOOGLE_PLACE_LIMIT = os.getenv('GOOGLE_PLACE_LIMIT')
-GOOGLE_PLACES_TOKEN = os.getenv('GOOGLE_PLACES_TOKEN')
-GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACES_TYPE')
+GOOGLE_PLACES_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
+GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
 GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
 
 from handlers.messages import get_message_by_key

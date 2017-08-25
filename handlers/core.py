@@ -81,7 +81,9 @@ def send_places(update, places):
 
 
 def take_by_limit(places, limit):
+
     print(limit)
+    print(places[:limit])
     return places[:limit]
 
 

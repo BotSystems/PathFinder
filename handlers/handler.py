@@ -9,9 +9,9 @@ from handlers.messages import get_message_by_key
 from handlers.decorators import save_chanel_decorator
 
 GOOGLE_PLACE_LIMIT = os.getenv('GOOGLE_PLACE_LIMIT')
-GOOGLE_PLACES_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
-GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
-GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
+GOOGLE_PLACE_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
+GOOGLE_PLACE_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
+GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
 
 
 @save_chanel_decorator
@@ -27,10 +27,7 @@ def handle_coordinate(bot, update):
             return update.message.reply_text(get_message_by_key('coordinates_are_required'))
 
         lat, lng = update.message.location.latitude, update.message.location.longitude
-
-        nearby_places = get_nearby_places(lat, lng, GOOGLE_PLACES_TOKEN, GOOGLE_PLACES_TYPE,
-                                          GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE)
-
+        nearby_places = get_nearby_places(lat, lng, GOOGLE_PLACE_TOKEN, GOOGLE_PLACE_TYPE, GOOGLE_PLACE_DISTANCE)
         places_objects = take_by_limit(order_places(build_places(nearby_places, lat, lng)), int(GOOGLE_PLACE_LIMIT))
 
         return send_places(update, places_objects)

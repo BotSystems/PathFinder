@@ -88,12 +88,12 @@ if __name__ == '__main__':
     latitude, longitude = 49.2316962, 28.4554234
 
     GOOGLE_PLACE_LIMIT = os.getenv('GOOGLE_PLACE_LIMIT')
-    GOOGLE_PLACES_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
-    GOOGLE_PLACES_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
-    GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
+    GOOGLE_PLACE_TOKEN = os.getenv('GOOGLE_PLACE_TOKEN')
+    GOOGLE_PLACE_TYPE = os.getenv('GOOGLE_PLACE_TYPE')
+    GOOGLE_PLACE_DISTANCE = os.getenv('GOOGLE_PLACE_DISTANCE')
 
-    nearby_places = get_nearby_places(latitude, longitude, GOOGLE_PLACES_TOKEN, GOOGLE_PLACES_TYPE,
-                                      GOOGLE_PLACES_GOOGLE_PLACE_DISTANCE)
+    nearby_places = get_nearby_places(latitude, longitude, GOOGLE_PLACE_TOKEN, GOOGLE_PLACE_TYPE,
+                                      GOOGLE_PLACE_DISTANCE)
     places_objects = take_by_limit(order_places(build_places(nearby_places, latitude, longitude)), GOOGLE_PLACE_LIMIT)
 
     print(places_objects)
